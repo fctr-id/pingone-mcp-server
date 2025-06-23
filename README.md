@@ -9,7 +9,7 @@
 </div>
 
 <div align="center">
-  <h3> **🚀 NEW:** **Complete Transport Support - STDIO & HTTP with Tool Call Visibility!**</h3>
+  <h3> **🚀 Supports Streamable HTTP tansport!**</h3>
 </div>
 
 
