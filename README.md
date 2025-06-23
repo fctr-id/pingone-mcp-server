@@ -53,6 +53,7 @@ The PingOne MCP Server is a powerful tool that enables AI models to interact dir
   - [Configuration \& Usage](#configuration--usage)
   - [Supported Transports and Launching](#supported-transports-and-launching)
     - [1. Standard I/O (STDIO) - Recommended](#1-standard-io-stdio---recommended)
+  - [PING\_REGION can be `north_america`, `europe`, `asia_pacific`](#ping_region-can-be-north_america-europe-asia_pacific)
     - [2. Streamable HTTP Transport - Modern \& Recommended](#2-streamable-http-transport---modern--recommended)
     - [3. Interactive Client](#3-interactive-client)
 - [⚠️ Good to Know](#️-good-to-know)
@@ -151,8 +152,10 @@ The PingOne MCP Server provides comprehensive identity management capabilities:
 
 ### 🏘️ Group Management
 - `list_pingone_groups` - List groups with filtering by name, population, or description
-- `get_pingone_group` - Get group details with optional member information
-- `list_pingone_group_members` - List all members of a specific group
+- `get_pingone_group` - Get group details and metadata
+- `list_pingone_users_in_group` - List all users who are members of a specific group
+- `list_pingone_users_in_multiple_groups` - Find users who belong to ALL specified groups (intersection)
+- `get_pingone_user_group_memberships` - Get all group memberships for a specific user
 
 ### 🕐 DateTime Utilities
 - `get_current_time` - Get current UTC time with optional offset (e.g., "24 hours ago")
@@ -275,6 +278,7 @@ The PingOne MCP Server supports multiple transport protocols:
 - **Visibility**: ✅ Full tool call logging and transparency
 
 **Configuration for Claude Desktop** (`claude_desktop_config.json`):
+### PING_REGION can be `north_america`, `europe`, `asia_pacific`
 ```json
 {
   "mcpServers": {
@@ -297,8 +301,6 @@ The PingOne MCP Server supports multiple transport protocols:
         "PING_ENV_2_CLIENT_ID": "staging-client-id",
         "PING_ENV_2_CLIENT_SECRET": "staging-client-secret",
         "PING_ENV_2_ALIASES": "stage,staging,test",
-        "AI_PROVIDER": "anthropic",
-        "ANTHROPIC_API_KEY": "your-anthropic-api-key"
       }
     }
   }
